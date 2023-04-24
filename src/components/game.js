@@ -132,9 +132,7 @@ function Game(){
           <div className="topContent">
             <button disabled={index == 0} className="moveButtons" onClick={moveLeft}><FaArrowLeft className="arrow" size={30}/></button>
           
-            {index == 0 && storyIndex==3 && <div className="trianglediv"><img src={triangle}/></div>}
-            {index == 1 && storyIndex==2 && <div className="trianglediv"><img src={null}/></div>}
-            {!(index==0 && storyIndex==3) && !(index==1 && storyIndex==2) && <img src={roomWalls[index].image} className="center-fit" />}
+              {index == 0 && storyIndex==3 || index == 1 && storyIndex==2 ? (<div className="trianglediv"><img src={storymap[index][storyIndex].image} /></div>):(<img src={storymap[index][storyIndex].image} className="center-fit" />)}
     
             <button disabled={index == 2 || index == maxIndex} className="moveButtons" onClick={moveRight}><FaArrowRight className="arrow" size={30}/></button>
           </div>
