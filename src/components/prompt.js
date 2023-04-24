@@ -1,12 +1,18 @@
 import '../App.css';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 
-function Prompt(){
+
+function Prompt({currPrompt,finalWall1,onBackButton}){
     return (
-        <div className="promptDiv">
+        <div className="promptDiv" >
+            <button className="backbtn" onClick={onBackButton}><FaArrowLeft/></button>
             <span className="promptTitle">Prompt</span>
-            <div className="prompt">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquet bibendum enim facilisis gravida. Eu sem integer vitae justo eget magna fermentum iaculis. Eu tincidunt tortor aliquam nulla facilisi cras fermentum odio. Amet est placerat in egestas erat imperdiet sed euismod. Blandit volutpat maecenas volutpat blandit aliquam. Quam adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna.</p>
+            <div className="prompt" style={{whiteSpace:"pre-line"}}>
+            <p>{currPrompt.prompt}</p>
             </div>
+            <div className="question">
+                {currPrompt.question}
+            </div>            
         </div>
     )
 }

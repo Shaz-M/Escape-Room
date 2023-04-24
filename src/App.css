@@ -16,6 +16,12 @@
   margin: auto;
   float:left;
 }
+.trianglediv{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(156, 162, 161);
+}
 
 .moveButtons{
   height: 100%;
@@ -73,9 +79,12 @@
 }
 
 .promptTitle{
-  display: table;
+  display: inline-block;
+  width: 85%;
+  text-align: center;
   margin: 0 auto;
   font-size: 23px;
+  padding-top: 5px;
 
 }
 
@@ -83,12 +92,11 @@
   border-bottom: solid;
   border-color: black;
   height:50%;
+  text-align: center;
 
 }
 .buttons{
   padding-top:5px;
-  display:flex;
-  justify-content:space-between; 
   padding-left:50px;
   padding-right:50px
 }
@@ -117,4 +125,18 @@
 .inputDiv{
   border-bottom: solid;
   border-color:black;
+}
+
+.backbtn{
+  padding:5px;
+  margin: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-radius: 7px;
+}
+
+.question{
+  text-align: center;
+  margin-top: 25px;
+  font-weight: 700;
 }
