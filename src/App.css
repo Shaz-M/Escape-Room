@@ -43,6 +43,10 @@
   color: white;
 }
 
+.moveButtons[disabled]{
+  pointer-events: none;
+}
+
 .topContent{
   display: flex;
   justify-content: center;

@@ -24,7 +24,7 @@ export const story2 = [
         answer: null,
     },
     {
-        prompt: "As you turn the hour and minute hand to the correct places you hear a loud click and two small double doors on the clock suddenly swing open. You look inside and find what appears to be a serial number etched into the wood of the clock: xx-xx-xx",
+        prompt: "As you turn the hour and minute hand to the correct places you hear a loud click and two small double doors on the clock suddenly swing open. You look inside and find what appears to be a serial number etched into the wood of the clock: 30-16-45",
         question: "Would you like to move to the safe or home?",
         hint:null,
         answer: null,
@@ -33,7 +33,7 @@ export const story2 = [
         prompt: "As you approach the safe you see it is locked tight with a 3 number combination",
         question: "Do you know the combination? (xx-xx-xx format)",
         hint:null,
-        answer: "12-12-12",
+        answer: "30-16-45",
     },
     {
         prompt: "Congratulations! You enter the code and manage to unlock the safe. Inside the safe, you find a key to unlock the door and move on to the next room. ",

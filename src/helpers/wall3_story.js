@@ -20,7 +20,7 @@ export const story3 = [
     {
         prompt: "The rotary phone is a vintage telephone with a classic design. It has a circular dial that rotates when you turn it to select a number, rather than a touchpad or a keyboard. The phone is made of sturdy plastic and metal, and has a long cord that connects it to the wall. Despite its age, the phone appears to be in good condition, and it seems like it might still be functional.",
         question: "What number would you like to call?",
-        hint: "The table gives a clue on which number would be benefical to call",
+        hint: "The table gives a clue on which number would be beneficial to call",
         answer: "911"
     },
     {
