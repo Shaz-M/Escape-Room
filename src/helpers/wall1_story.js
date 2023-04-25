@@ -32,7 +32,7 @@ export const story1 = [
         image: triangle
     },
     {
-        prompt:"Congratulations! You have obtained the clue \"1234\" from the painting",
+        prompt:"That is correct! This number will be very useful for your escape!",
         question: "Would you like to investigate the bookcase or chest?",
         hint:null,
         answer:null,
