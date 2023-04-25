@@ -37,9 +37,9 @@ export const story3 = [
     },
     {
         prompt: "In the corner of the room you spot a vintage mirror, upon closer inspection you notice that there are four colored stones in each corner: blue, red, yellow, and green. Inscribed on the mirror is the following message, \"Find the right color sequence to reveal the hidden message\".",
-        question:"What is the color sequence?",
+        question:"What is the color sequence? (Enter colors seperated by a single space)",
         hint:null,
-        answer:"rgby",
+        answer:"red green blue yellow",
         image:wall3
     },
     {

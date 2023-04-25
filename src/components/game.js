@@ -74,7 +74,7 @@ function Game(){
       let hourInput = event.target.hour.value;
       let minuteInput = event.target.minute.value;
       let items = item_map[index];
-      if(hourInput == "4" && minuteInput == "12"){
+      if(hourInput == "6" && minuteInput == "11"){
           items[getKeyByValue(items,storyIndex)]+=1;
           setStoryIndex(storyIndex+1);
       }
