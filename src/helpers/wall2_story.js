@@ -2,6 +2,7 @@ import wall2 from '../assets/wall2.png'
 import clockmove from '../assets/clock moves.png'
 import clockhands from '../assets/clock closeup.png'
 import opensafe from '../assets/open safe.png'
+import newspaper from '../assets/newspaper.png'
 
 export const story2 = [
     {
@@ -23,7 +24,7 @@ export const story2 = [
         question: "Would you like to investigate the clock further or go to the safe? (investigate or safe) ",
         hint:null,
         answer: null,
-        image:null
+        image: newspaper
     },
     {
         prompt: "As you examine the clock hands, you notice that they are slightly loose and can be moved. You try turning the hands, and to your surprise, you hear a soft clicking sound. You realize that inputting a correct time will open a secret compartment within the clock",
