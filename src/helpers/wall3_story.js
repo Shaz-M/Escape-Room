@@ -1,4 +1,6 @@
 import wall3 from '../assets/wall3.png'
+import mirror from '../assets/mirror.png'
+import paper from '../assets/paper.png'
 export const story3 = [
     {
         prompt: "As you enter the final room you take a look around - there is a door, a mirror, a table, and a phone. Each of these items holds a clue that will help you unlock the door and escape to freedom.",
@@ -12,7 +14,7 @@ export const story3 = [
         question: "What is the answer to the riddle?",
         hint:"The answer to this riddle is a four-letter word that refers to something you might ask for when you need assistance. It's a common word that most people use on a regular basis.",
         answer: "help",
-        image:wall3
+        image:paper
     },
     {
         prompt: "Correct, the answer was help. Keep this in mind when using the phone.",
@@ -40,7 +42,7 @@ export const story3 = [
         question:"What is the color sequence? (Enter colors seperated by a single space)",
         hint:null,
         answer:"red green blue yellow",
-        image:wall3
+        image:mirror
     },
     {
         prompt: "Correct, the sequence of colors was red, green, blue, yellow. The sequence of colors holds the key to your escape",
