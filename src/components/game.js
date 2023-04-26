@@ -27,7 +27,7 @@ let story3_items = {home:0,table:1,phone:3,mirror:5,door:7}
 var stack = [];
 var item_map = {0:story1_items,1:story2_items,2:story3_items}
 
-function Game(){
+function Game(props){
     const [index,setIndex] = useState(0);
     const [storyIndex,setStoryIndex] = useState(0);
     const [remainingHints,setRemainingHints] = useState(3);
@@ -125,25 +125,42 @@ function Game(){
         }
         event.target.reset();
       };
-
+      useEffect(() => {
+        if (props.reset) {
+          setIndex(0);
+          setStoryIndex(0);
+          props.setReset(false);
+        }
+      }, [props.reset]);
+      useEffect(() => {
+        if (index === 2 && storyIndex === storymap[index].length - 1) {
+          props.onEscape();
+        }
+      }, [index, storyIndex, props]);
+      const minutes = Math.floor(props.timer / 60);
+      const seconds = props.timer % 60; 
     return (
-      <div className="imgbox">
-        <div className="allContent">
-          <div className="topContent">
-            <button disabled={index == 0} className="moveButtons" onClick={moveLeft}><FaArrowLeft className="arrow" size={30}/></button>
-          
-              {index == 0 && storyIndex==3 || index == 1 && storyIndex==2 ? (<div className="trianglediv"><img src={storymap[index][storyIndex].image} /></div>):(<img src={storymap[index][storyIndex].image} className="center-fit" />)}
-    
-            <button disabled={index == 2 || index == maxIndex} className="moveButtons" onClick={moveRight}><FaArrowRight className="arrow" size={30}/></button>
-          </div>
-          <div className="bottomContent">
-            <Prompt currPrompt={storymap[index][storyIndex]} finalWall1={finalWall1} onBackButton={onBackButton}/>
-            <div className="rightDiv">
-                <Hints currPrompt={storymap[index][storyIndex]} remainingHints={remainingHints} setRemainingHints={setRemainingHints}/>
-                <Answer handleSubmit={handleSubmit} finalWall1={finalWall1} timeWall2={timeWall2} handleSubmitTimeWall={handleSubmitTimeWall} handleSubmitFinalWall1={handleSubmitFinalWall1}/>
+      <div className='game-container'>
+        <div className="imgbox">
+          <div className="allContent">
+            <div className="topContent">
+              <button disabled={index == 0} className="moveButtons" onClick={moveLeft}><FaArrowLeft className="arrow" size={30}/></button>
+            
+                {index == 0 && storyIndex==3 || index == 1 && storyIndex==2 ? (<div className="trianglediv"><img src={storymap[index][storyIndex].image} /></div>):(<img src={storymap[index][storyIndex].image} className="center-fit" />)}
+      
+              <button disabled={index == 2 || index == maxIndex} className="moveButtons" onClick={moveRight}><FaArrowRight className="arrow" size={30}/></button>
+            </div>
+            <div className="bottomContent">
+              <Prompt currPrompt={storymap[index][storyIndex]} finalWall1={finalWall1} onBackButton={onBackButton}/>
+              <div className="rightDiv">
+                  <Hints currPrompt={storymap[index][storyIndex]} remainingHints={remainingHints} setRemainingHints={setRemainingHints}/>
+                  <Answer handleSubmit={handleSubmit} finalWall1={finalWall1} timeWall2={timeWall2} handleSubmitTimeWall={handleSubmitTimeWall} handleSubmitFinalWall1={handleSubmitFinalWall1}/>
+              </div>
             </div>
           </div>
+          
         </div>
+        <div className="timer">Time: {minutes}m {seconds}s</div>
       </div>
     );
 
