@@ -34,6 +34,7 @@ function Game(props){
     const [finalWall1,setFinalWall1] = useState(false);
     const [timeWall2,setTimeWall2] = useState(false);
     const [maxIndex,setMaxIndex] = useState(0);
+    const [invalidInput,setInvalidInput] = useState(false);
 
     useEffect (() =>{
       if(storymap[index].length-1 == storyIndex){
@@ -64,13 +65,16 @@ function Game(props){
     }
 
     function onBackButton(){
+    
         if(stack.length > 0){
           var i = stack.pop()
+          setInvalidInput(false)
           setStoryIndex(i);
         }
     }
     const handleSubmitTimeWall = async (event) =>{
       event.preventDefault();
+      setInvalidInput(false)
       let hourInput = event.target.hour.value;
       let minuteInput = event.target.minute.value;
       let items = item_map[index];
@@ -78,12 +82,16 @@ function Game(props){
           items[getKeyByValue(items,storyIndex)]+=1;
           setStoryIndex(storyIndex+1);
       }
+      else{
+        setInvalidInput(true)
+      }
       event.target.reset();
   };
     
 
     const handleSubmitFinalWall1 = async (event) =>{
         event.preventDefault();
+        setInvalidInput(false)
         let wordInput = event.target.word.value;
         wordInput = wordInput.toLowerCase();
         let numberInput = event.target.number.value;
@@ -92,12 +100,16 @@ function Game(props){
             items[getKeyByValue(items,storyIndex)]+=1;
             setStoryIndex(storyIndex+1);
         }
+        else{
+          setInvalidInput(true)
+        }
         event.target.reset();
     };
 
 
     const handleSubmit = async (event) =>{
         event.preventDefault();
+        setInvalidInput(false)
         let input = event.target.answer.value;
         input = input.toLowerCase()
         let story = storymap[index];
@@ -110,6 +122,7 @@ function Game(props){
             }
             else{
                 //handle error
+                setInvalidInput(true)
             }
         }
         else{
@@ -121,6 +134,7 @@ function Game(props){
             }
             else{
                 // wrong answer error handle
+                setInvalidInput(true)
             }
         }
         event.target.reset();
@@ -146,7 +160,7 @@ function Game(props){
             <div className="topContent">
               <button disabled={index == 0} className="moveButtons" onClick={moveLeft}><FaArrowLeft className="arrow" size={30}/></button>
             
-                {index == 0 && storyIndex==3 || index == 1 && storyIndex==2 ? (<div className="trianglediv"><img src={storymap[index][storyIndex].image} /></div>):(<img src={storymap[index][storyIndex].image} className="center-fit" />)}
+                {index == 0 && storyIndex==3 || index == 1 && storyIndex==2 || index == 0 && storyIndex==4 || index == 2 && storyIndex==5 ? (<div className="trianglediv"><img src={storymap[index][storyIndex].image} /></div>):(<img src={storymap[index][storyIndex].image} className="center-fit" />)}
       
               <button disabled={index == 2 || index == maxIndex} className="moveButtons" onClick={moveRight}><FaArrowRight className="arrow" size={30}/></button>
             </div>
@@ -154,7 +168,7 @@ function Game(props){
               <Prompt currPrompt={storymap[index][storyIndex]} finalWall1={finalWall1} onBackButton={onBackButton}/>
               <div className="rightDiv">
                   <Hints currPrompt={storymap[index][storyIndex]} remainingHints={remainingHints} setRemainingHints={setRemainingHints}/>
-                  <Answer handleSubmit={handleSubmit} finalWall1={finalWall1} timeWall2={timeWall2} handleSubmitTimeWall={handleSubmitTimeWall} handleSubmitFinalWall1={handleSubmitFinalWall1}/>
+                  <Answer invalidInput={invalidInput} handleSubmit={handleSubmit} finalWall1={finalWall1} timeWall2={timeWall2} handleSubmitTimeWall={handleSubmitTimeWall} handleSubmitFinalWall1={handleSubmitFinalWall1}/>
               </div>
             </div>
           </div>
