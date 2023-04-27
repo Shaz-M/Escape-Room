@@ -8,7 +8,9 @@ import {story2} from '../helpers/wall2_story';
 import {story3} from '../helpers/wall3_story';
 import Hints from './hints';
 import Answer from './answer';
-import triangle from '../assets/triangle.png'
+import React from 'react';
+import Sound from 'react-sound';
+import music from '../assets/eerie.mp3'
 
 function getKeyByValue(object, value) {
     return Object.keys(object).find(key => object[key] === value);
@@ -175,6 +177,7 @@ function Game(props){
           
         </div>
         <div className="timer">Time: {minutes}m {seconds}s</div>
+        <Sound url={music} playStatus={Sound.status.PLAYING}/>
       </div>
     );
 
